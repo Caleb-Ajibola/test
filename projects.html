@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio Navigation Example</title>
+  <title>Portfolio - Caleb Ajibola</title>
   <style>
     * {
       margin: 0;
@@ -13,18 +13,24 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #0f0f11;
+      background-color: #0a0a0c;
       color: #e0e0e0;
+      min-height: 100vh;
     }
 
+    .layout {
+      display: flex;
+    }
+
+    /* ── Sidebar ── */
     .sidebar {
       width: 260px;
       height: 100vh;
       background-color: #0a0a0c;
       position: fixed;
-      padding: 1.5rem 0;
       border-right: 1px solid #1a1a1f;
       overflow-y: auto;
+      padding: 1.5rem 0;
     }
 
     .nav-list {
@@ -32,52 +38,30 @@
     }
 
     .nav-item {
-      padding: 0.75rem 1.5rem;
+      padding: 0.85rem 1.5rem;
       color: #a0a0a8;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       cursor: pointer;
       transition: all 0.2s ease;
-      user-select: none;
     }
 
     .nav-item:hover {
-      color: #ffffff;
-      background-color: #1a1a1f;
+      color: white;
+      background-color: #1a1a20;
     }
 
     .nav-item.active {
-      color: #ffffff;
+      color: white;
       font-weight: 600;
       background-color: #1e1e25;
       border-left: 3px solid #6366f1;
     }
 
-    /* Projects submenu */
-    .projects-submenu {
-      display: none;
-      background-color: #111114;
-      padding: 0.5rem 0;
-    }
-
-    .projects-submenu.show {
-      display: block;
-    }
-
-    .projects-submenu .nav-item {
-      padding-left: 2.8rem;
-      font-size: 0.93rem;
-      color: #9090a0;
-    }
-
-    .projects-submenu .nav-item:hover {
-      color: #e0e0ff;
-      background-color: #1a1a22;
-    }
-
     .icon {
       width: 20px;
+      text-align: center;
       opacity: 0.7;
     }
 
@@ -85,71 +69,225 @@
       opacity: 1;
     }
 
-    h2.connect {
+    h3.connect {
       margin: 2.5rem 1.5rem 1rem;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #606070;
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+
+    /* ── Main Content ── */
+    .main-content {
+      margin-left: 260px;
+      padding: 3rem 4rem;
+      width: calc(100% - 260px);
+    }
+
+    .headline {
+      font-size: 4.2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .headline.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-list {
+      margin-top: 2.5rem;
+      max-width: 900px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.7s ease-out 0.2s;
+    }
+
+    .project-list.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-item {
+      margin-bottom: 1.8rem;
+    }
+
+    .project-item a {
+      color: #a0a0ff;
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    .project-item a:hover {
+      color: #c4c4ff;
+      text-decoration: underline;
+    }
+
+    .project-desc {
+      color: #9090a0;
+      margin-top: 0.4rem;
+      font-size: 1rem;
+    }
+
+    /* Hide all sections by default */
+    .content-section {
+      display: none;
+    }
+
+    .content-section.active {
+      display: block;
     }
   </style>
 </head>
 <body>
 
-<div class="sidebar">
+<div class="layout">
 
-  <!-- Main Navigation -->
-  <ul class="nav-list">
-    <li class="nav-item">
-      <span class="icon">🏠</span> Home
-    </li>
-    <li class="nav-item">
-      <span class="icon">💼</span> Services
-    </li>
-    <li class="nav-item active" id="projects-toggle">
-      <span class="icon">🚀</span> Projects
-    </li>
-    
-    <!-- Projects submenu -->
-    <ul class="projects-submenu show" id="projects-menu">
-      <li class="nav-item">Sales Dashboard - Power BI</li>
-      <li class="nav-item">ETL Pipeline with Airflow & Snowflake</li>
-      <li class="nav-item">Customer 360 View (dbt + Looker)</li>
-      <li class="nav-item">Real-time Analytics - Kafka + ClickHouse</li>
-      <li class="nav-item">Data Governance Framework</li>
+  <!-- Sidebar (stays always) -->
+  <aside class="sidebar">
+    <ul class="nav-list">
+      <li class="nav-item" data-target="home">
+        <span class="icon">🏠</span> Home
+      </li>
+      <li class="nav-item" data-target="services">
+        <span class="icon">💼</span> Services
+      </li>
+      <li class="nav-item active" data-target="projects">
+        <span class="icon">🚀</span> Projects
+      </li>
+      <li class="nav-item" data-target="writing">
+        <span class="icon">✍️</span> Writing
+      </li>
+      <li class="nav-item" data-target="communities">
+        <span class="icon">👥</span> Communities
+      </li>
     </ul>
 
-    <li class="nav-item">
-      <span class="icon">✍️</span> Writing
-    </li>
-    <li class="nav-item">
-      <span class="icon">👥</span> Communities
-    </li>
-  </ul>
+    <h3 class="connect">CONNECT WITH ME</h3>
+    <ul class="nav-list">
+      <li class="nav-item"><span class="icon">✉️</span> Email</li>
+      <li class="nav-item"><span class="icon">🔗</span> LinkedIn</li>
+      <li class="nav-item"><span class="icon">🐦</span> Twitter / X</li>
+    </ul>
+  </aside>
 
-  <h2 class="connect">CONNECT WITH ME</h2>
-  <ul class="nav-list">
-    <li class="nav-item"><span class="icon">✉️</span> Email</li>
-    <li class="nav-item"><span class="icon">🔗</span> LinkedIn</li>
-    <li class="nav-item"><span class="icon">🐦</span> Twitter / X</li>
-  </ul>
+  <!-- Main content area -->
+  <main class="main-content">
 
+    <!-- All content sections -->
+    <div id="home" class="content-section">
+      <h1 class="headline">HOME</h1>
+      <p>Welcome to my space...</p>
+    </div>
+
+    <div id="services" class="content-section">
+      <h1 class="headline">SERVICES</h1>
+      <p>My consulting & engineering services...</p>
+    </div>
+
+    <div id="projects" class="content-section active">
+      <h1 class="headline">PROJECTS</h1>
+      
+      <div class="project-list">
+        <div class="project-item">
+          <a href="https://github.com/username/sales-dashboard" target="_blank">
+            Sales Performance Dashboard
+          </a>
+          <div class="project-desc">Interactive Power BI dashboard tracking KPIs across regions</div>
+        </div>
+
+        <div class="project-item">
+          <a href="#" target="_blank">
+            Modern Data Stack ETL Pipeline
+          </a>
+          <div class="project-desc">Airflow + dbt + Snowflake • daily incremental loads</div>
+        </div>
+
+        <div class="project-item">
+          <a href="#" target="_blank">
+            Customer 360 Single View
+          </a>
+          <div class="project-desc">Unified profile using dbt, Snowflake & Looker</div>
+        </div>
+
+        <div class="project-item">
+          <a href="#" target="_blank">
+            Real-time Analytics Platform
+          </a>
+          <div class="project-desc">Kafka → ClickHouse → Grafana stack</div>
+        </div>
+
+        <div class="project-item">
+          <a href="#" target="_blank">
+            Enterprise Data Governance Framework
+          </a>
+          <div class="project-desc">Policies, lineage tracking & catalog implementation</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="writing" class="content-section">
+      <h1 class="headline">WRITING</h1>
+      <p>Articles, quickstarts and knowledge shares...</p>
+    </div>
+
+    <div id="communities" class="content-section">
+      <h1 class="headline">COMMUNITIES</h1>
+      <p>Where I hang out and contribute...</p>
+    </div>
+
+  </main>
 </div>
 
 <script>
-  const projectsToggle = document.getElementById('projects-toggle');
-  const projectsMenu = document.getElementById('projects-menu');
+  const navItems = document.querySelectorAll('.nav-item[data-target]');
+  const sections = document.querySelectorAll('.content-section');
+  const headlines = document.querySelectorAll('.headline');
+  const projectLists = document.querySelectorAll('.project-list');
 
-  projectsToggle.addEventListener('click', () => {
-    // Toggle submenu visibility
-    projectsMenu.classList.toggle('show');
-    
-    // Optional: toggle active class only when open
-    // projectsToggle.classList.toggle('active');
+  function showSection(targetId) {
+    // Hide all sections
+    sections.forEach(s => s.classList.remove('active'));
+    // Show selected one
+    document.getElementById(targetId).classList.add('active');
+
+    // Reset animations
+    headlines.forEach(h => h.classList.remove('visible'));
+    projectLists.forEach(p => p.classList.remove('visible'));
+
+    // Trigger animation on next frame
+    setTimeout(() => {
+      const activeHeadline = document.querySelector(`#${targetId} .headline`);
+      const activeList = document.querySelector(`#${targetId} .project-list`);
+      
+      if (activeHeadline) activeHeadline.classList.add('visible');
+      if (activeList) activeList.classList.add('visible');
+    }, 50);
+  }
+
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const target = item.getAttribute('data-target');
+
+      // Visual active state in sidebar
+      navItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+
+      showSection(target);
+    });
   });
 
-  // Optional: close other menus / highlight logic can be added here
+  // Initial animation
+  setTimeout(() => {
+    document.querySelector('.headline').classList.add('visible');
+    document.querySelector('.project-list')?.classList.add('visible');
+  }, 300);
 </script>
-
 </body>
 </html>
