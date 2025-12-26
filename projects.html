@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Caleb Ajibola - [Change this title]</title>
+  <title>Caleb Ajibola - Projects</title>
 
-  <!-- Montserrat font -->
+  <!-- Montserrat font from Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -98,27 +98,28 @@
     }
 
     .headline {
-      font-size: 4.8rem;
+      font-size: 5.2rem;
       font-weight: 800;
       letter-spacing: -0.04em;
       color: #ffffff;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
 
     .content-list {
-      margin-top: 2.2rem;
-      max-width: 920px;
+      margin-top: 2.5rem;
+      max-width: 960px;
     }
 
     .item {
-      margin-bottom: 2.4rem;
+      margin-bottom: 2.6rem;
     }
 
     .item a {
       color: #a0a0ff;
       text-decoration: none;
-      font-size: 1.55rem;
+      font-size: 1.65rem;
       font-weight: 600;
+      transition: color 0.2s ease;
     }
 
     .item a:hover {
@@ -128,9 +129,9 @@
 
     .item-desc {
       color: #a0a0b0;
-      margin-top: 0.6rem;
-      font-size: 1.05rem;
-      line-height: 1.5;
+      margin-top: 0.7rem;
+      font-size: 1.1rem;
+      line-height: 1.55;
       font-weight: 400;
     }
   </style>
@@ -139,22 +140,22 @@
 
 <div class="layout">
 
-  <!-- Sidebar -->
+  <!-- Sidebar Navigation -->
   <aside class="sidebar">
     <ul class="nav-list">
       <li class="nav-item">
         <a href="index.html"><span class="icon">🏠</span> Home</a>
       </li>
-      <li class="nav-item [put 'active' here if this is the current page]">
+      <li class="nav-item">
         <a href="services.html"><span class="icon">💼</span> Services</a>
       </li>
-      <li class="nav-item [put 'active' here if this is the current page]">
+      <li class="nav-item active">
         <a href="projects.html"><span class="icon">🚀</span> Projects</a>
       </li>
-      <li class="nav-item [put 'active' here if this is the current page]">
+      <li class="nav-item">
         <a href="writing.html"><span class="icon">✍️</span> Writing</a>
       </li>
-      <li class="nav-item [put 'active' here if this is the current page]">
+      <li class="nav-item">
         <a href="communities.html"><span class="icon">👥</span> Communities</a>
       </li>
     </ul>
@@ -167,20 +168,51 @@
     </ul>
   </aside>
 
-  <!-- Main content area - change content here for each page -->
+  <!-- Main Projects Content -->
   <main class="main-content">
-
-    <h1 class="headline">SERVICES</h1> <!-- ← Change this title -->
+    <h1 class="headline">PROJECTS</h1>
 
     <div class="content-list">
-      <!-- Your items here -->
       <div class="item">
-        <a href="#" target="_blank">Business Intelligence & Analytics</a>
-        <div class="item-desc">End-to-end dashboard development (Power BI, Looker, Tableau), KPI design, executive reporting & self-service enablement</div>
+        <a href="#" target="_blank">Sales Performance Dashboard</a>
+        <div class="item-desc">
+          Interactive Power BI dashboard tracking sales KPIs across regions, 
+          with drill-down capabilities, forecasting and real-time regional comparisons.
+        </div>
       </div>
-      <!-- ... add more items ... -->
-    </div>
 
+      <div class="item">
+        <a href="#" target="_blank">Modern Data Stack ETL Pipeline</a>
+        <div class="item-desc">
+          End-to-end automated pipeline using Airflow, dbt, and Snowflake. 
+          Daily incremental loads with data quality tests and monitoring.
+        </div>
+      </div>
+
+      <div class="item">
+        <a href="#" target="_blank">Customer 360 Single View</a>
+        <div class="item-desc">
+          Unified customer profile platform built with dbt transformations, 
+          Snowflake as data warehouse and Looker for visualization.
+        </div>
+      </div>
+
+      <div class="item">
+        <a href="#" target="_blank">Real-time Analytics Platform</a>
+        <div class="item-desc">
+          Streaming architecture with Kafka → ClickHouse → Grafana stack 
+          for near real-time monitoring and alerting.
+        </div>
+      </div>
+
+      <div class="item">
+        <a href="#" target="_blank">Enterprise Data Governance Framework</a>
+        <div class="item-desc">
+          Implementation of data catalog, lineage tracking, data quality rules 
+          and governance policies across multiple business units.
+        </div>
+      </div>
+    </div>
   </main>
 </div>
 
