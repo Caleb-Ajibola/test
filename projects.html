@@ -65,9 +65,7 @@
       opacity: 0.7;
     }
 
-    .nav-item.active .icon {
-      opacity: 1;
-    }
+    .nav-item.active .icon { opacity: 1; }
 
     h3.connect {
       margin: 2.5rem 1.5rem 1rem;
@@ -85,14 +83,14 @@
     }
 
     .headline {
-      font-size: 4.2rem;
+      font-size: 4.6rem;
       font-weight: 800;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.05em;
       color: #ffffff;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.7rem;
       opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
+      transform: translateY(35px);
+      transition: all 0.75s ease-out;
     }
 
     .headline.visible {
@@ -100,42 +98,42 @@
       transform: translateY(0);
     }
 
-    .project-list {
-      margin-top: 2.5rem;
-      max-width: 900px;
+    .content-list {
+      margin-top: 2.2rem;
+      max-width: 920px;
       opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.7s ease-out 0.2s;
+      transform: translateY(35px);
+      transition: all 0.85s ease-out 0.2s;
     }
 
-    .project-list.visible {
+    .content-list.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .project-item {
-      margin-bottom: 1.8rem;
+    .item {
+      margin-bottom: 2.2rem;
     }
 
-    .project-item a {
+    .item a {
       color: #a0a0ff;
       text-decoration: none;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 500;
     }
 
-    .project-item a:hover {
-      color: #c4c4ff;
+    .item a:hover {
+      color: #d0d0ff;
       text-decoration: underline;
     }
 
-    .project-desc {
+    .item-desc {
       color: #9090a0;
-      margin-top: 0.4rem;
-      font-size: 1rem;
+      margin-top: 0.6rem;
+      font-size: 1.08rem;
+      line-height: 1.45;
     }
 
-    /* Hide all sections by default */
     .content-section {
       display: none;
     }
@@ -149,7 +147,7 @@
 
 <div class="layout">
 
-  <!-- Sidebar (stays always) -->
+  <!-- Sidebar -->
   <aside class="sidebar">
     <ul class="nav-list">
       <li class="nav-item" data-target="home">
@@ -158,13 +156,13 @@
       <li class="nav-item" data-target="services">
         <span class="icon">💼</span> Services
       </li>
-      <li class="nav-item active" data-target="projects">
+      <li class="nav-item" data-target="projects">
         <span class="icon">🚀</span> Projects
       </li>
       <li class="nav-item" data-target="writing">
         <span class="icon">✍️</span> Writing
       </li>
-      <li class="nav-item" data-target="communities">
+      <li class="nav-item active" data-target="communities">
         <span class="icon">👥</span> Communities
       </li>
     </ul>
@@ -177,69 +175,88 @@
     </ul>
   </aside>
 
-  <!-- Main content area -->
+  <!-- Main content -->
   <main class="main-content">
 
-    <!-- All content sections -->
     <div id="home" class="content-section">
       <h1 class="headline">HOME</h1>
-      <p>Welcome to my space...</p>
+      <p>Welcome to my data & analytics portfolio...</p>
     </div>
 
     <div id="services" class="content-section">
       <h1 class="headline">SERVICES</h1>
-      <p>My consulting & engineering services...</p>
+      <div class="content-list">
+        <div class="item">
+          <a href="#" target="_blank">Business Intelligence & Analytics</a>
+          <div class="item-desc">End-to-end dashboard development (Power BI, Looker, Tableau), KPI design, executive reporting & self-service enablement</div>
+        </div>
+        <div class="item">
+          <a href="#" target="_blank">Modern Data Engineering & Pipelines</a>
+          <div class="item-desc">Scalable pipelines using Airflow, dbt, Snowflake, Databricks, Kafka and cloud-native tools</div>
+        </div>
+        <div class="item">
+          <a href="#" target="_blank">Data Governance & Quality</a>
+          <div class="item-desc">Catalog implementation, lineage tracking, policy definition and data quality monitoring</div>
+        </div>
+      </div>
     </div>
 
-    <div id="projects" class="content-section active">
+    <div id="projects" class="content-section">
       <h1 class="headline">PROJECTS</h1>
-      
-      <div class="project-list">
-        <div class="project-item">
-          <a href="https://github.com/username/sales-dashboard" target="_blank">
-            Sales Performance Dashboard
-          </a>
-          <div class="project-desc">Interactive Power BI dashboard tracking KPIs across regions</div>
+      <div class="content-list">
+        <div class="item">
+          <a href="#" target="_blank">Sales Performance Dashboard</a>
+          <div class="item-desc">Interactive Power BI solution tracking regional KPIs and trends</div>
         </div>
-
-        <div class="project-item">
-          <a href="#" target="_blank">
-            Modern Data Stack ETL Pipeline
-          </a>
-          <div class="project-desc">Airflow + dbt + Snowflake • daily incremental loads</div>
-        </div>
-
-        <div class="project-item">
-          <a href="#" target="_blank">
-            Customer 360 Single View
-          </a>
-          <div class="project-desc">Unified profile using dbt, Snowflake & Looker</div>
-        </div>
-
-        <div class="project-item">
-          <a href="#" target="_blank">
-            Real-time Analytics Platform
-          </a>
-          <div class="project-desc">Kafka → ClickHouse → Grafana stack</div>
-        </div>
-
-        <div class="project-item">
-          <a href="#" target="_blank">
-            Enterprise Data Governance Framework
-          </a>
-          <div class="project-desc">Policies, lineage tracking & catalog implementation</div>
+        <div class="item">
+          <a href="#" target="_blank">Modern Data Stack ETL Pipeline</a>
+          <div class="item-desc">Airflow + dbt + Snowflake • daily incremental governed loads</div>
         </div>
       </div>
     </div>
 
     <div id="writing" class="content-section">
       <h1 class="headline">WRITING</h1>
-      <p>Articles, quickstarts and knowledge shares...</p>
+      <div class="content-list">
+        <div class="item">
+          <a href="#" target="_blank">Why Two SQL Queries That Return the Same Result Can Perform So Differently</a>
+          <div class="item-desc">Execution plans, indexes, statistics and optimizer behavior explained</div>
+        </div>
+        <div class="item">
+          <a href="#" target="_blank">Quick Start: Setting Up dbt with Snowflake in 15 Minutes</a>
+          <div class="item-desc">Project setup, profiles.yml, first models and testing</div>
+        </div>
+      </div>
     </div>
 
-    <div id="communities" class="content-section">
+    <div id="communities" class="content-section active">
       <h1 class="headline">COMMUNITIES</h1>
-      <p>Where I hang out and contribute...</p>
+      <div class="content-list">
+        <div class="item">
+          <a href="https://www.linkedin.com/groups/..." target="_blank">Data Engineering Nigeria</a>
+          <div class="item-desc">Active contributor and occasional speaker in Nigeria's growing data engineering community</div>
+        </div>
+
+        <div class="item">
+          <a href="https://dbt.slack.com/" target="_blank">dbt Community (Slack)</a>
+          <div class="item-desc">Regular participant in #adoption, #snowflake and #general channels • sharing dbt best practices</div>
+        </div>
+
+        <div class="item">
+          <a href="https://www.linkedin.com/groups/..." target="_blank">Snowflake User Group - Africa</a>
+          <div class="item-desc">Member and contributor to discussions on performance tuning and modern data stack adoption</div>
+        </div>
+
+        <div class="item">
+          <a href="https://www.meetup.com/..." target="_blank">Lagos Data Meetup</a>
+          <div class="item-desc">Attending and networking at local data & analytics events in Lagos</div>
+        </div>
+
+        <div class="item">
+          <a href="https://discord.gg/..." target="_blank">DataFam Africa Discord</a>
+          <div class="item-desc">Helping new analysts and engineers with Power BI, SQL and data modeling questions</div>
+        </div>
+      </div>
     </div>
 
   </main>
@@ -249,22 +266,18 @@
   const navItems = document.querySelectorAll('.nav-item[data-target]');
   const sections = document.querySelectorAll('.content-section');
   const headlines = document.querySelectorAll('.headline');
-  const projectLists = document.querySelectorAll('.project-list');
+  const lists = document.querySelectorAll('.content-list');
 
   function showSection(targetId) {
-    // Hide all sections
     sections.forEach(s => s.classList.remove('active'));
-    // Show selected one
     document.getElementById(targetId).classList.add('active');
 
-    // Reset animations
     headlines.forEach(h => h.classList.remove('visible'));
-    projectLists.forEach(p => p.classList.remove('visible'));
+    lists.forEach(l => l.classList.remove('visible'));
 
-    // Trigger animation on next frame
     setTimeout(() => {
       const activeHeadline = document.querySelector(`#${targetId} .headline`);
-      const activeList = document.querySelector(`#${targetId} .project-list`);
+      const activeList = document.querySelector(`#${targetId} .content-list`);
       
       if (activeHeadline) activeHeadline.classList.add('visible');
       if (activeList) activeList.classList.add('visible');
@@ -275,7 +288,6 @@
     item.addEventListener('click', () => {
       const target = item.getAttribute('data-target');
 
-      // Visual active state in sidebar
       navItems.forEach(i => i.classList.remove('active'));
       item.classList.add('active');
 
@@ -283,10 +295,10 @@
     });
   });
 
-  // Initial animation
+  // Initial animation on page load
   setTimeout(() => {
     document.querySelector('.headline').classList.add('visible');
-    document.querySelector('.project-list')?.classList.add('visible');
+    document.querySelector('.content-list')?.classList.add('visible');
   }, 300);
 </script>
 </body>
