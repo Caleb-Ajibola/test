@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Caleb Ajibola</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #0a0a0c;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+
+    .layout {
+      display: flex;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      width: 260px;
+      height: 100vh;
+      background-color: #0a0a0c;
+      position: fixed;
+      border-right: 1px solid #1a1a1f;
+      overflow-y: auto;
+      padding: 1.5rem 0;
+    }
+
+    .nav-list {
+      list-style: none;
+    }
+
+    .nav-item {
+      padding: 0.85rem 1.5rem;
+      color: #a0a0a8;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-item:hover {
+      color: white;
+      background-color: #1a1a20;
+    }
+
+    .nav-item.active {
+      color: white;
+      font-weight: 600;
+      background-color: #1e1e25;
+      border-left: 3px solid #6366f1;
+    }
+
+    .icon {
+      width: 20px;
+      text-align: center;
+      opacity: 0.7;
+    }
+
+    .nav-item.active .icon { opacity: 1; }
+
+    h3.connect {
+      margin: 2.5rem 1.5rem 1rem;
+      font-size: 0.78rem;
+      color: #606070;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ── Main Content ── */
+    .main-content {
+      margin-left: 260px;
+      padding: 3rem 4rem;
+      width: calc(100% - 260px);
+    }
+
+    .headline {
+      font-size: 4.5rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease-out;
+    }
+
+    .headline.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .content-list {
+      margin-top: 2rem;
+      max-width: 900px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out 0.15s;
+    }
+
+    .content-list.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .item {
+      margin-bottom: 2rem;
+    }
+
+    .item a {
+      color: #a0a0ff;
+      text-decoration: none;
+      font-size: 1.45rem;
+      font-weight: 500;
+    }
+
+    .item a:hover {
+      color: #c4c4ff;
+      text-decoration: underline;
+    }
+
+    .item-desc {
+      color: #9090a0;
+      margin-top: 0.5rem;
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .content-section {
+      display: none;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <ul class="nav-list">
+      <li class="nav-item" data-target="home">
+        <span class="icon">🏠</span> Home
+      </li>
+      <li class="nav-item" data-target="services">
+        <span class="icon">💼</span> Services
+      </li>
+      <li class="nav-item" data-target="projects">
+        <span class="icon">🚀</span> Projects
+      </li>
+      <li class="nav-item active" data-target="writing">
+        <span class="icon">✍️</span> Writing
+      </li>
+      <li class="nav-item" data-target="communities">
+        <span class="icon">👥</span> Communities
+      </li>
+    </ul>
+
+    <h3 class="connect">CONNECT WITH ME</h3>
+    <ul class="nav-list">
+      <li class="nav-item"><span class="icon">✉️</span> Email</li>
+      <li class="nav-item"><span class="icon">🔗</span> LinkedIn</li>
+      <li class="nav-item"><span class="icon">
