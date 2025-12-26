@@ -1,33 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Projects | Power BI Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Navigation Example</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #0f0f11;
+      color: #e0e0e0;
+    }
+
+    .sidebar {
+      width: 260px;
+      height: 100vh;
+      background-color: #0a0a0c;
+      position: fixed;
+      padding: 1.5rem 0;
+      border-right: 1px solid #1a1a1f;
+      overflow-y: auto;
+    }
+
+    .nav-list {
+      list-style: none;
+    }
+
+    .nav-item {
+      padding: 0.75rem 1.5rem;
+      color: #a0a0a8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .nav-item:hover {
+      color: #ffffff;
+      background-color: #1a1a1f;
+    }
+
+    .nav-item.active {
+      color: #ffffff;
+      font-weight: 600;
+      background-color: #1e1e25;
+      border-left: 3px solid #6366f1;
+    }
+
+    /* Projects submenu */
+    .projects-submenu {
+      display: none;
+      background-color: #111114;
+      padding: 0.5rem 0;
+    }
+
+    .projects-submenu.show {
+      display: block;
+    }
+
+    .projects-submenu .nav-item {
+      padding-left: 2.8rem;
+      font-size: 0.93rem;
+      color: #9090a0;
+    }
+
+    .projects-submenu .nav-item:hover {
+      color: #e0e0ff;
+      background-color: #1a1a22;
+    }
+
+    .icon {
+      width: 20px;
+      opacity: 0.7;
+    }
+
+    .nav-item.active .icon {
+      opacity: 1;
+    }
+
+    h2.connect {
+      margin: 2.5rem 1.5rem 1rem;
+      font-size: 0.8rem;
+      color: #606070;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  </style>
 </head>
 <body>
 
-<h1>My Power BI Projects</h1>
+<div class="sidebar">
 
-<div>
-    <h3>HR Analytics Dashboard</h3>
-    <img src="images/screenshot1.png" width="600">
-    <br>
-    <a href="case-studies/report1.pdf" target="_blank">Download Case Study</a>
+  <!-- Main Navigation -->
+  <ul class="nav-list">
+    <li class="nav-item">
+      <span class="icon">🏠</span> Home
+    </li>
+    <li class="nav-item">
+      <span class="icon">💼</span> Services
+    </li>
+    <li class="nav-item active" id="projects-toggle">
+      <span class="icon">🚀</span> Projects
+    </li>
+    
+    <!-- Projects submenu -->
+    <ul class="projects-submenu show" id="projects-menu">
+      <li class="nav-item">Sales Dashboard - Power BI</li>
+      <li class="nav-item">ETL Pipeline with Airflow & Snowflake</li>
+      <li class="nav-item">Customer 360 View (dbt + Looker)</li>
+      <li class="nav-item">Real-time Analytics - Kafka + ClickHouse</li>
+      <li class="nav-item">Data Governance Framework</li>
+    </ul>
+
+    <li class="nav-item">
+      <span class="icon">✍️</span> Writing
+    </li>
+    <li class="nav-item">
+      <span class="icon">👥</span> Communities
+    </li>
+  </ul>
+
+  <h2 class="connect">CONNECT WITH ME</h2>
+  <ul class="nav-list">
+    <li class="nav-item"><span class="icon">✉️</span> Email</li>
+    <li class="nav-item"><span class="icon">🔗</span> LinkedIn</li>
+    <li class="nav-item"><span class="icon">🐦</span> Twitter / X</li>
+  </ul>
+
 </div>
 
-<br>
+<script>
+  const projectsToggle = document.getElementById('projects-toggle');
+  const projectsMenu = document.getElementById('projects-menu');
 
-<div>
-    <h3>Employee Attrition Dashboard</h3>
-    <img src="images/screenshot2.png" width="600">
-    <br>
-    <a href="case-studies/report2.pdf" target="_blank">Download Case Study</a>
-</div>
+  projectsToggle.addEventListener('click', () => {
+    // Toggle submenu visibility
+    projectsMenu.classList.toggle('show');
+    
+    // Optional: toggle active class only when open
+    // projectsToggle.classList.toggle('active');
+  });
 
-<br>
-<a href="index.html">Back to Home</a>
+  // Optional: close other menus / highlight logic can be added here
+</script>
 
 </body>
 </html>
-
