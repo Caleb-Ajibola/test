@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio - Caleb Ajibola</title>
+  <title>Caleb Ajibola - [Change this title]</title>
+
+  <!-- Montserrat font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -12,7 +18,7 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
       background-color: #0a0a0c;
       color: #e0e0e0;
       min-height: 100vh;
@@ -22,7 +28,7 @@
       display: flex;
     }
 
-    /* ── Sidebar ── */
+    /* Sidebar */
     .sidebar {
       width: 260px;
       height: 100vh;
@@ -39,22 +45,28 @@
 
     .nav-item {
       padding: 0.85rem 1.5rem;
+    }
+
+    .nav-item a {
       color: #a0a0a8;
+      text-decoration: none;
       display: flex;
       align-items: center;
       gap: 12px;
-      cursor: pointer;
       transition: all 0.2s ease;
+      width: 100%;
     }
 
-    .nav-item:hover {
+    .nav-item:hover a {
       color: white;
-      background-color: #1a1a20;
+    }
+
+    .nav-item.active a {
+      color: white;
+      font-weight: 700;
     }
 
     .nav-item.active {
-      color: white;
-      font-weight: 600;
       background-color: #1e1e25;
       border-left: 3px solid #6366f1;
     }
@@ -65,17 +77,20 @@
       opacity: 0.7;
     }
 
-    .nav-item.active .icon { opacity: 1; }
+    .nav-item.active .icon {
+      opacity: 1;
+    }
 
     h3.connect {
       margin: 2.5rem 1.5rem 1rem;
       font-size: 0.78rem;
       color: #606070;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
+      font-weight: 600;
     }
 
-    /* ── Main Content ── */
+    /* Main content */
     .main-content {
       margin-left: 260px;
       padding: 3rem 4rem;
@@ -83,43 +98,27 @@
     }
 
     .headline {
-      font-size: 4.6rem;
+      font-size: 4.8rem;
       font-weight: 800;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.04em;
       color: #ffffff;
-      margin-bottom: 0.7rem;
-      opacity: 0;
-      transform: translateY(35px);
-      transition: all 0.75s ease-out;
-    }
-
-    .headline.visible {
-      opacity: 1;
-      transform: translateY(0);
+      margin-bottom: 1rem;
     }
 
     .content-list {
       margin-top: 2.2rem;
       max-width: 920px;
-      opacity: 0;
-      transform: translateY(35px);
-      transition: all 0.85s ease-out 0.2s;
-    }
-
-    .content-list.visible {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .item {
-      margin-bottom: 2.2rem;
+      margin-bottom: 2.4rem;
     }
 
     .item a {
       color: #a0a0ff;
       text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 500;
+      font-size: 1.55rem;
+      font-weight: 600;
     }
 
     .item a:hover {
@@ -128,18 +127,11 @@
     }
 
     .item-desc {
-      color: #9090a0;
+      color: #a0a0b0;
       margin-top: 0.6rem;
-      font-size: 1.08rem;
-      line-height: 1.45;
-    }
-
-    .content-section {
-      display: none;
-    }
-
-    .content-section.active {
-      display: block;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      font-weight: 400;
     }
   </style>
 </head>
@@ -150,21 +142,20 @@
   <!-- Sidebar -->
   <aside class="sidebar">
     <ul class="nav-list">
-    <li class="nav-item">
-  <span class="icon">🏠</span>
-  <a href="index.html" style="color: inherit; text-decoration: none;">Home</a>
-</li>
-      <li class="nav-item" data-target="services">
-        <span class="icon">💼</span> Services
+      <li class="nav-item">
+        <a href="index.html"><span class="icon">🏠</span> Home</a>
       </li>
-      <li class="nav-item" data-target="projects">
-        <span class="icon">🚀</span> Projects
+      <li class="nav-item [put 'active' here if this is the current page]">
+        <a href="services.html"><span class="icon">💼</span> Services</a>
       </li>
-      <li class="nav-item" data-target="writing">
-        <span class="icon">✍️</span> Writing
+      <li class="nav-item [put 'active' here if this is the current page]">
+        <a href="projects.html"><span class="icon">🚀</span> Projects</a>
       </li>
-      <li class="nav-item active" data-target="communities">
-        <span class="icon">👥</span> Communities
+      <li class="nav-item [put 'active' here if this is the current page]">
+        <a href="writing.html"><span class="icon">✍️</span> Writing</a>
+      </li>
+      <li class="nav-item [put 'active' here if this is the current page]">
+        <a href="communities.html"><span class="icon">👥</span> Communities</a>
       </li>
     </ul>
 
@@ -176,132 +167,22 @@
     </ul>
   </aside>
 
-  <!-- Main content -->
+  <!-- Main content area - change content here for each page -->
   <main class="main-content">
 
-    <div id="home" class="content-section">
-      <h1 class="headline">HOME</h1>
-      <p>Welcome to my data & analytics portfolio...</p>
-    </div>
+    <h1 class="headline">SERVICES</h1> <!-- ← Change this title -->
 
-    <div id="services" class="content-section">
-      <h1 class="headline">SERVICES</h1>
-      <div class="content-list">
-        <div class="item">
-          <a href="#" target="_blank">Business Intelligence & Analytics</a>
-          <div class="item-desc">End-to-end dashboard development (Power BI, Looker, Tableau), KPI design, executive reporting & self-service enablement</div>
-        </div>
-        <div class="item">
-          <a href="#" target="_blank">Modern Data Engineering & Pipelines</a>
-          <div class="item-desc">Scalable pipelines using Airflow, dbt, Snowflake, Databricks, Kafka and cloud-native tools</div>
-        </div>
-        <div class="item">
-          <a href="#" target="_blank">Data Governance & Quality</a>
-          <div class="item-desc">Catalog implementation, lineage tracking, policy definition and data quality monitoring</div>
-        </div>
+    <div class="content-list">
+      <!-- Your items here -->
+      <div class="item">
+        <a href="#" target="_blank">Business Intelligence & Analytics</a>
+        <div class="item-desc">End-to-end dashboard development (Power BI, Looker, Tableau), KPI design, executive reporting & self-service enablement</div>
       </div>
-    </div>
-
-    <div id="projects" class="content-section">
-      <h1 class="headline">PROJECTS</h1>
-      <div class="content-list">
-        <div class="item">
-          <a href="#" target="_blank">Sales Performance Dashboard</a>
-          <div class="item-desc">Interactive Power BI solution tracking regional KPIs and trends</div>
-        </div>
-        <div class="item">
-          <a href="#" target="_blank">Modern Data Stack ETL Pipeline</a>
-          <div class="item-desc">Airflow + dbt + Snowflake • daily incremental governed loads</div>
-        </div>
-      </div>
-    </div>
-
-    <div id="writing" class="content-section">
-      <h1 class="headline">WRITING</h1>
-      <div class="content-list">
-        <div class="item">
-          <a href="#" target="_blank">Why Two SQL Queries That Return the Same Result Can Perform So Differently</a>
-          <div class="item-desc">Execution plans, indexes, statistics and optimizer behavior explained</div>
-        </div>
-        <div class="item">
-          <a href="#" target="_blank">Quick Start: Setting Up dbt with Snowflake in 15 Minutes</a>
-          <div class="item-desc">Project setup, profiles.yml, first models and testing</div>
-        </div>
-      </div>
-    </div>
-
-    <div id="communities" class="content-section active">
-      <h1 class="headline">COMMUNITIES</h1>
-      <div class="content-list">
-        <div class="item">
-          <a href="https://www.linkedin.com/groups/..." target="_blank">Data Engineering Nigeria</a>
-          <div class="item-desc">Active contributor and occasional speaker in Nigeria's growing data engineering community</div>
-        </div>
-
-        <div class="item">
-          <a href="https://dbt.slack.com/" target="_blank">dbt Community (Slack)</a>
-          <div class="item-desc">Regular participant in #adoption, #snowflake and #general channels • sharing dbt best practices</div>
-        </div>
-
-        <div class="item">
-          <a href="https://www.linkedin.com/groups/..." target="_blank">Snowflake User Group - Africa</a>
-          <div class="item-desc">Member and contributor to discussions on performance tuning and modern data stack adoption</div>
-        </div>
-
-        <div class="item">
-          <a href="https://www.meetup.com/..." target="_blank">Lagos Data Meetup</a>
-          <div class="item-desc">Attending and networking at local data & analytics events in Lagos</div>
-        </div>
-
-        <div class="item">
-          <a href="https://discord.gg/..." target="_blank">DataFam Africa Discord</a>
-          <div class="item-desc">Helping new analysts and engineers with Power BI, SQL and data modeling questions</div>
-        </div>
-      </div>
+      <!-- ... add more items ... -->
     </div>
 
   </main>
 </div>
 
-<script>
-  const navItems = document.querySelectorAll('.nav-item[data-target]');
-  const sections = document.querySelectorAll('.content-section');
-  const headlines = document.querySelectorAll('.headline');
-  const lists = document.querySelectorAll('.content-list');
-
-  function showSection(targetId) {
-    sections.forEach(s => s.classList.remove('active'));
-    document.getElementById(targetId).classList.add('active');
-
-    headlines.forEach(h => h.classList.remove('visible'));
-    lists.forEach(l => l.classList.remove('visible'));
-
-    setTimeout(() => {
-      const activeHeadline = document.querySelector(`#${targetId} .headline`);
-      const activeList = document.querySelector(`#${targetId} .content-list`);
-      
-      if (activeHeadline) activeHeadline.classList.add('visible');
-      if (activeList) activeList.classList.add('visible');
-    }, 50);
-  }
-
-  navItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const target = item.getAttribute('data-target');
-
-      navItems.forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
-
-      showSection(target);
-    });
-  });
-
-  // Initial animation on page load
-  setTimeout(() => {
-    document.querySelector('.headline').classList.add('visible');
-    document.querySelector('.content-list')?.classList.add('visible');
-  }, 300);
-</script>
 </body>
 </html>
-
