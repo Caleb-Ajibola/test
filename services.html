@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Caleb Ajibola - Services</title>
 
+  <!-- Montserrat font from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+      background-color: #0a0a0c;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+
+    .layout {
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      height: 100vh;
+      background-color: #0a0a0c;
+      position: fixed;
+      border-right: 1px solid #1a1a1f;
+      overflow-y: auto;
+      padding: 1.5rem 0;
+    }
+
+    .nav-list {
+      list-style: none;
+    }
+
+    .nav-item {
+      padding: 0.85rem 1.5rem;
+    }
+
+    .nav-item a {
+      color: #a0a0a8;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+
+    .nav-item:hover a {
+      color: white;
+    }
+
+    .nav-item.active a {
+      color: white;
+      font-weight: 700;
+    }
+
+    .nav-item.active {
+      background-color: #1e1e25;
+      border-left: 3px solid #6366f1;
+    }
+
+    .icon {
+      width: 20px;
+      text-align: center;
+      opacity: 0.7;
+    }
+
+    .nav-item.active .icon {
+      opacity: 1;
+    }
+
+    h3.connect {
+      margin: 2.5rem 1.5rem 1rem;
+      font-size: 0.78rem;
+      color: #606070;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+    }
+
+    /* Main content */
+    .main-content {
+      margin-left: 260px;
+      padding: 3rem 4rem;
+      width: calc(100% - 260px);
+    }
+
+    .headline {
+      font-size: 5.2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: #ffffff;
+      margin-bottom: 1.2rem;
+    }
+
+    .content-list {
+      margin-top: 2.5rem;
+      max-width: 960px;
+    }
+
+    .item {
+      margin-bottom: 2.8rem;
+    }
+
+    .item a {
+      color: #a0a0ff;
+      text-decoration: none;
+      font-size: 1.65rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .item a:hover {
+      color: #d0d0ff;
+      text-decoration: underline;
+    }
+
+    .item-desc {
+      color: #a0a0b0;
+      margin-top: 0.7rem;
+      font-size: 1.1rem;
+      line-height: 1.55;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="index.html"><span class="icon">🏠</span> Home</a>
+      </li>
+      <li class="nav-item active">
+        <a href="services.html"><span class="icon">💼</span> Services</a>
+      </li>
+      <li class="nav-item">
+        <a href="projects.html"><span class="icon">🚀</span> Projects</a>
+      </li>
+      <li class="nav-item">
+        <a href="writing.html"><span class="icon">✍️</span> Writing</a>
+      </li>
+      <li class="nav-item">
+        <a href="communities.html"><span class="icon">👥</span> Communities</a>
+      </li>
+    </ul>
+
+    <h3 class="connect">CONNECT WITH ME</h3>
+    <ul class="nav-list">
+      <li class="nav-item"><span class="icon">✉️</span> Email</li>
+      <li class="nav-item"><span class="icon">🔗</span> LinkedIn</li>
+      <li class="nav-item"><span class="icon">🐦</span> Twitter / X</li>
+    </ul>
+  </aside>
+
+  <!-- Main Services Content -->
+  <main class="main-content">
+    <h1 class="headline">SERVICES</h1>
+
+    <div class="content-list">
+
+      <div class="item">
+        <a href="#" target="_blank">Business Intelligence & Analytics</a>
+        <div class="item-desc">
+          Design and development of modern dashboards and reporting solutions using Power BI, Looker, Tableau 
+          and other leading BI tools. KPI definition, executive reporting, self-service analytics enablement.
+        </div>
+      </div>
+
+      <div class="item">
+        <a href="#" target="_blank">Modern Data Engineering & Pipelines</a>
+        <div class="item-desc">
+          Building scalable, reliable, and governed data pipelines using Airflow, dbt, Prefect, 
+          Snowflake, Databricks, Kafka, and other cloud-native modern data stack tools.
+        </div>
+      </div>
+
+      <div class="item">
+        <a href="#" target="_blank">Data Modeling & Warehousing</a>
+        <div class="item-desc">
+          Dimensional modeling (Kimball/Inmon), dbt transformations, star & snowflake schema design
